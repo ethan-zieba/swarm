@@ -9,7 +9,7 @@ Deploy a full Docker Swarm cluster with an NFS storage.
 * * *
 
 # TTICHAN GraSP CloG
-
+(Yes, that is how we will refer to this project from now on)
 ## Project Summary
 
 - Traeffik - Reverse Proxy for accessing the services
