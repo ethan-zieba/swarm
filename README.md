@@ -154,3 +154,66 @@ ansible-playbook -i inventory.ini dorian.yml
 # Authentik
 
 # GlusterFS
+
+## Key concepts
+
+Volumes are logical units made of bricks (on each host)
+
+### Clients
+
+#### FUSE
+*Filesystem in Userspace*
+
+Widely used client for GlusterFS, used to mount a volume and interact with it like a normal local filesystem, handling network communication transparently
+Example: `mount -t glusterfs Walid:/gv0 /mnt/gv0`
+The filesystem will be mounted in the user space instead of the kernel space
+
+#### Other clients
+
+GlusterFS could also be exported as NFS, simpler but slower and legacy
+Or be used with gfapi/gogfapi (packages wrapping the api of the same name: gfapi)
+
+### Summary
+
+| **Concept**              | **Description**                                                                 |
+|--------------------------|----------------------------------------------------------------------------------|
+| **Type**                 | Distributed, scalable network filesystem                                        |
+| **Architecture**         | Peer-to-peer, no centralized metadata server (fully decentralized)              |
+| **Components**           | - **Brick**: Basic storage unit (a directory on a server)<br>- **Volume**: Logical collection of bricks |
+| **Transport**            | Uses TCP (default port: 24007+) or optionally TLS                              |
+| **Nodes (Peers)**        | The servers working together in the cluster. No central controller – fully equal.|
+| **Volume Types**         | - **Distributed**: Spread data across bricks<br>- **Replicated**: Copy data to multiple bricks<br>- **Striped**: Striping across bricks<br>- **Dispersed**: Erasure-coded storage |
+| **Scalability**          | Add more nodes/bricks to scale out horizontally                                |
+| **High Availability**    | Achieved via replicated/dispersed volumes and client-side failover              |
+| **Self-healing**         | Detects and syncs out-of-date or missing files across replicas                 |
+| **No Metadata Server**   | Metadata is distributed; avoids single point of failure                         |
+| **Management Tools**     | CLI (`gluster`), REST API (optional), and Ansible modules                      |
+| **Security**             | IP-based access control, optional TLS encryption, file-level permissions       |
+
+## Key configuration final steps
+
+**We encountered probing errors as our /etc/hosts file was not properly set up**
+
+Manually creating a volume:
+```
+gluster volume create gv0 replica 3 \
+walid:/gluster/brick1 \
+swagpi1:/gluster/brick1 \
+swagpi2:/gluster/brick1
+```
+
+Checking for volume status and infos:
+On any host:
+```
+gluster volume status
+gluster volume info
+gluster peer status
+```
+
+Checking for the daemon status:
+`sudo systemctl status glusterd`
+
+Checking for file replication:
+`echo "hello from Walid" | sudo tee /mnt/gv0/test.txt`
+Then:
+`cat /mnt/gv0/test.txt` on another host
