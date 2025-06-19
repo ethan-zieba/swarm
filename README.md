@@ -169,7 +169,14 @@ ansible-playbook -i inventory.ini dorian.yml
 
 # Swarm
 
+## Key Concepts
+
+**Services** run "on" the whole cluster, in the form of tasks executed by the hosts
+**Networks** can be overlayed, so that a service can access the whole swarm infrastructure
+
 # Portainer
+
+Management interface for orchestrators such as Docker Swarm
 
 # CloudFlare
 
