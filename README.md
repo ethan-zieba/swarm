@@ -8,7 +8,7 @@ Deploy a full Docker Swarm cluster with an NFS storage.
 
 * * *
 
-# TTICHAN GraSP CloG
+# TTICHAN GraSP CloPAG
 (Yes, that is how we will refer to this project from now on)
 ## Project Summary
 
@@ -25,6 +25,8 @@ Deploy a full Docker Swarm cluster with an NFS storage.
 - Portainer - Graphical interface for managing the Swarm
 
 - Cloudflare - For creating a tunnel
+- Pangolin - Modern Reverse Proxy product for homelabs and pre-prod environments
+- Authentik - Simple SSO
 - GlusterFS - Replicated and distributed storage
 
 # Traeffik
@@ -146,5 +148,9 @@ ansible-playbook -i inventory.ini dorian.yml
 # Portainer
 
 # CloudFlare
+
+# Pangolin
+
+# Authentik
 
 # GlusterFS
