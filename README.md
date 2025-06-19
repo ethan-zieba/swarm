@@ -2,6 +2,8 @@
 ## Project for La Plateforme_
 *but mostly for me at this point*
 
+*Please note that the use of the first person in the documentation for this project means, in fact, both my associate and I. 
+
 ### Original Statement
 
 Deploy a full Docker Swarm cluster with an NFS storage, using 4 VMs (3 for the Swarm, 1 for the NFS). Deploy services such as a local repository, a MariaDB, a PHP environment, an Nginx and a VSCode Server.
