@@ -1,10 +1,29 @@
 # Docker Swarm
 ## Project for La Plateforme_
-*but mostly for me*
+*but mostly for me at this point*
 
-### Statement
+### Original Statement
 
-Deploy a full Docker Swarm cluster with an NFS storage.
+Deploy a full Docker Swarm cluster with an NFS storage, using 4 VMs (3 for the Swarm, 1 for the NFS). Deploy services such as a local repository, a MariaDB, a PHP environment, an Nginx and a VSCode Server.
+
+### My Statement
+
+_I want_ to further learn how to build secure, resilient physical infrastructures. For the proof of concept (PoC) I will use a 4 Raspberry Pi 4's cluster and a **DELL FX2S** chassis with 4 blades for the first production-ready version.
+_I need_ the storage to be resilient, so I will make it replicated and distributed over 3 hosts using **GlusterFS**.
+_I need_ my services and management interfaces to be accessible from abroad, so I will mount a **Pangolin** reverse proxy (I could mount an **NGINX** one, but I want to try **Pangolin** as I'm not familiar with the product and it looks fairly new), with a **CloudFlare tunnel** for anti-DDoS and hiding my home IP address.
+_I need_ to centralize important logs and metrics, so I will develop my own log gatherer called **N.A.D.I.R**, which will index data into an **InfluxDB**, and visualize it with a **Grafana**. The logs will be collected from custom microagents named **T.O.M**.
+
+**For the BRP (Business Restarting Plan)**: 
+- _I need_ to have backups, I will use a custom solution: **H.U.G.O**
+- _I need_ to enable easy migration and re-installation of the entire infrastructure on clean, new, working hardware if needed, using **Ansible** for provisionning and updates.
+
+**For the BCP (Business Continuity Plan)**:
+- _I need_ to monitor critical metrics, such as memory/CPU load and disk space, using **T.O.M** managed probes.
+- _I need_ to maintain tight control over services and containers running on the infrastructure, that's why I will use **Portainer**
+
+_I need_ the infrastructure to be secure, I will setup a **Clavister E10 Firewall** filtering packets based on source location, protocol, port...
+_I need_ to manage logins easily, I will deploy an SSO solution called **Authentik**
+_I need_ the load to be perfectly balanced between nodes, and to enable **Pangolin** to access all of the hosts and services seamlessly. I will use Traeffik that integrates well with it
 
 * * *
 
