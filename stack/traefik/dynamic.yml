@@ -1,0 +1,14 @@
+http:
+  routers:
+    portainer:
+      rule: "Host(`portainer.cyril`)"
+      service: portainer-service
+      entryPoints:
+        - web
+  
+  services:
+    portainer-service:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.121.12:9000"
+          - url: "http://192.168.121.13:9000"
