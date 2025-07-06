@@ -6,14 +6,8 @@
     - glusterfs
 
 - name: Docker Swarm setup
-  hosts: docker_nodes
+  hosts: swarm_nodes
   become: true
   roles:
     - docker_swarm
 
-- name: Create Docker Volume backed by GlusterFS on all Swarm nodes
-  hosts: swarm_nodes
-  become: true
-  roles:
-    - role: docker_swarm
-      tasks_from: volume
