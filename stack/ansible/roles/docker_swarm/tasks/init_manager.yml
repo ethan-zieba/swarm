@@ -1,7 +1,13 @@
+- name: Is node already in swarm?
+  shell: docker info --format '{{"{{"}} .Swarm.LocalNodeState {{"}}"}}'
+  register: swarm_status
+  changed_when: false
+
 - name: Init Swarm
   shell: docker swarm init --advertise-addr {{ ansible_default_ipv4.address }}
   register: init_output
   changed_when: "'Swarm initialized' in init_output.stdout"
+  when: swarm_status.stdout != "active"
 
 - name: Get worker token
   shell: docker swarm join-token -q worker
