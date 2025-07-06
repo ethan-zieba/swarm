@@ -27,11 +27,9 @@ For logs and metrics, we will build a custom log aggregator called **N.A.D.I.R,*
 - Authentik will serve as the central SSO for user authentication
 - We will use Traefik to balance traffic across all nodes and ensure smooth integration with Pangolin and the deployed services
 
-* * *
-
 ## TTICHAN GraSP CloPAG
 (Yes, that is how we will refer to this project from now on)
-## Project Summary
+### Project Summary
 
 - Traeffik - Reverse Proxy for accessing the services
 - T.O.M - Tracking & Observation Microagent
