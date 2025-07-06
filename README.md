@@ -23,18 +23,19 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 
 **T**TI**C**H**A**N Gra**SP** ClAG
 
-| Component                 | Status                     | Progress          |
-|---------------------------|----------------------------|-------------------|
-| Clavister (Firewall)      | Deployed                   | ██████████████████ 100% |
-| Traefik (Reverse Proxy)   | Deployed                   | ██████████████████ 100% |
-| Swarm (Docker Orchestration) | Deployed               | ██████████████████ 100% |
-| Ansible (Provisioning)    | Deployed                   | ██████████████████ 100% |
-| Portainer (Swarm UI)      | Deployed                   | ██████████████████ 100% |
-| GlusterFS (Distributed Storage) | Deployed            | ██████████████████ 100% |
-| N.A.D.I.R (Intrusion Detection) | Planning/Starting     | ████▁▁▁▁▁▁▁▁▁ 30%   |
-| InfluxDB (Time-series DB)        | In progress          | ░░░░░░░░░░░░░░░░ 0%    |
-| Grafana (Visualization)          | In progress          | ░░░░░░░░░░░░░░░░ 0%    |
-| T.O.M (Telemetry Agent)           | In progress          | ░░░░░░░░░░░░░░░░ 0%    |
-| H.U.G.O (Offsite Storage)         | Not Deployed          | ░░░░░░░░░░░░░░░░ 0%    |
-| Cloudflare Tunnel                | Not Deployed          | ░░░░░░░░░░░░░░░░ 0%    |
-| Authentik (SSO)                  | Not Deployed          | ░░░░░░░░░░░░░░░░ 0%    |
+| Component                      | Status             | Progress               |
+|-------------------------------|--------------------|------------------------|
+| Clavister (Firewall)           | Deployed           | ███████████████████ (100%) |
+| Traefik (Reverse Proxy)        | Deployed           | ███████████████████ (100%) |
+| Swarm (Docker Orchestration)   | Deployed           | ███████████████████ (100%) |
+| Ansible (Provisioning)         | Deployed           | ███████████████████ (100%) |
+| Portainer (Swarm UI)           | Deployed           | ███████████████████ (100%) |
+| GlusterFS (Distributed Storage)| Deployed           | ███████████████████ (100%) |
+| N.A.D.I.R (Intrusion Detection)| Planning/Starting  | ███████▁▁▁▁▁▁▁▁▁▁▁▁ (35%)     |
+| InfluxDB (Time-series DB)      | In Progress        | █████▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (25%)     |
+| Grafana (Visualization)        | In Progress        | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
+| T.O.M (Telemetry Agent)         | In Progress       | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
+| H.U.G.O (Offsite Storage)       | In Progress       | ██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (10%)     |
+| Cloudflare Tunnel              | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+| Authentik (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+
