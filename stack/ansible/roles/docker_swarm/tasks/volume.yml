@@ -4,6 +4,12 @@
     state: directory
     mode: '0755'
 
+- name: Check if Docker volume already exists
+  command: docker volume inspect glusterfs_shared
+  register: volume_check
+  failed_when: false
+  changed_when: false
+
 - name: Create Docker volume backed by GlusterFS
   shell: >
     docker volume create
@@ -12,5 +18,4 @@
     --opt device=/mnt/gv0/appdata
     --opt o=bind
     glusterfs_shared
-  args:
-    creates: /var/lib/docker/volumes/glusterfs_shared
+  when: volume_check.rc != 0

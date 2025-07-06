@@ -43,3 +43,6 @@
 
 - name: Manager/Worker Swarm node setup
   include_tasks: "{{  'init_manager.yml' if inventory_hostname in groups['swarm_manager'] else 'join_worker.yml' }}"
+
+- name: GlusterFS backed Docker volume
+  import_tasks: volume.yml
