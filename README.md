@@ -17,4 +17,4 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 2. Create an "ansible" user on cyril, and a "management" user on the other hosts, all with passwordless sudo
 3. Create an ssh ed25519 keypair for ansible@cyril, push its public key on the other hosts management account
 4. Install ansible and ansible posix on cyril [using pipx and ansible-galaxy](https://github.com/ethan-zieba/swarm/blob/docs/docs/2_DEPLOYMENT/ANSIBLE.md#installing-ansible)
-5. Further instructions to come...
+5. Further instructions to come... (a script is in the making)
