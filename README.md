@@ -43,4 +43,5 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 | H.U.G.O (Offsite Storage)       | In Progress       | ██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (10%)     |
 | Cloudflare Tunnel              | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
 | Authentik (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+| Misc applications (required for the exam)| Not Deployed| ░░░░░░░░░░░░░░░░░░░ (0%)   |
 
