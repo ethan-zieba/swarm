@@ -1,5 +1,5 @@
 - name: Init Swarm
-  shell: docker swarm init --advertise-addr {{ ansible_host_ipv4 }}
+  shell: docker swarm init --advertise-addr {{ ansible_default_ipv4.address }}
   register: init_output
   changed_when: "'Swarm initialized' in init_output.stdout"
 

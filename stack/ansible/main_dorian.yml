@@ -15,19 +15,19 @@
   hosts: swarm_manager
   become: true
   roles:
-    - role: swarm
+    - role: docker_swarm
       tasks_from: init_manager
 
 - name: Join Docker Swarm Workers to the cluster
   hosts: swarm_workers
   become: true
   roles:
-    - role: swarm
+    - role: docker_swarm
       tasks_from: join_worker
 
 - name: Create Docker Volume backed by GlusterFS on all Swarm nodes
   hosts: swarm_nodes
   become: true
   roles:
-    - role: swarm
+    - role: docker_swarm
       tasks_from: volume

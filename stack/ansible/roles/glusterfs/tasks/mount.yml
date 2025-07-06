@@ -6,7 +6,7 @@
     mode: '0755'
 
 - name: Mount GlusterFS volume
-  ansible.builtin.mount:
+  ansible.posix.mount:
     path: "{{ gluster_mount_point }}"
     src: "{{ gluster_peers[0] }}:{{ gluster_volume_name }}"
     fstype: glusterfs
