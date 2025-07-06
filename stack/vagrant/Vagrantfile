@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
       vm.vm.provision "shell", inline: <<-SHELL
         apt update
-        apt install -y openssh-server
+        apt install -y openssh-server sudo
         systemctl enable ssh
         systemctl start ssh
         echo "# ---Fellow Vagrant provisionned hosts---" >> /etc/hosts
@@ -31,10 +31,21 @@ Vagrant.configure("2") do |config|
         next if name == other_name
         vm.vm.provision "shell", inline: "echo '#{other_ip} #{other_name}' >> /etc/hosts"
       end
-      # Ansible on Cyril
+      # Ansible and ansible user on Cyril
       if name == "cyril"
         vm.vm.provision "shell", inline: <<-SHELL
           apt-get install -y ansible
+          useradd -m -s /bin/bash ansible
+          echo "ansible ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ansible
+          chmod 0440 /etc/sudoers.d/ansible
+        SHELL
+      end
+      # management user on each other vm
+      if ["ultrac1", "ultrac2", "walid"].include?(name)
+        vm.vm.provision "shell", inline: <<-SHELL
+          useradd -m -s /bin/bash management
+          echo "management ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/management
+          chmod 0440 /etc/sudoers.d/management
         SHELL
       end
     end
