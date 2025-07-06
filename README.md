@@ -31,7 +31,6 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 | Ansible (Provisioning)    | Deployed                   | ██████████████████ 100% |
 | Portainer (Swarm UI)      | Deployed                   | ██████████████████ 100% |
 | GlusterFS (Distributed Storage) | Deployed            | ██████████████████ 100% |
-
 | N.A.D.I.R (Intrusion Detection) | Planning/Starting     | ████▁▁▁▁▁▁▁▁▁ 30%   |
 | InfluxDB (Time-series DB)        | In progress          | ░░░░░░░░░░░░░░░░ 0%    |
 | Grafana (Visualization)          | In progress          | ░░░░░░░░░░░░░░░░ 0%    |
