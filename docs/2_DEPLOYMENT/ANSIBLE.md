@@ -40,4 +40,36 @@ We found out that apt-key was deprecated, and that we must now use: `ansible.bui
             ├── main.yml
             └── mount.yml
 ```
-#### Needs an overview of the main playbook
+## Misc knowledge
+
+### Roles
+
+A role is a structured way to organize playbooks by function. It lets you reuse configuration logic in a modular, readable, and maintainable format.
+Each role usually represents one responsibility: i.e: installing Docker, configuring a GlusterFS brick, or joining a Swarm.
+Each role is a folder with a default internal structure:
+- tasks
+- handlers
+- templates
+- files
+- vars
+- defaults
+- meta
+
+Not every internal folder of a role has to be used, only `tasks` is enough for basic roles.
+
+#### Benefits of using roles
+
+Cleaner ansible structure
+Reusable tasks and functions
+More readable
+Integration with Ansible Galaxy
+
+#### To use a role in a playbook
+
+```
+- name: Set up Docker
+  hosts: all
+  become: true
+  roles:
+    - docker
+```
