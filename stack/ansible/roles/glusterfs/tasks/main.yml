@@ -1,0 +1,10 @@
+---
+- name: Install GlusterFS
+  import_tasks: install.yml
+
+- name: Configure GlusterFS
+  import_tasks: configure.yml
+
+- name: Mount GlusterFS (please work)
+  import_tasks: mount.yml
+

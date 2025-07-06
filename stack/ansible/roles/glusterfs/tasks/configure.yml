@@ -1,0 +1,31 @@
+---
+- name: Probe ultrac1 and ultrac2
+  shell: |
+    gluster peer probe ultrac1
+    gluster peer probe ultrac2
+  register: probe_output
+  changed_when: "'already in peer list' not in probe_output.stdout"
+
+- name: Wait for peers to connect
+  shell: gluster peer status | grep 'Peer in Cluster (Connected)' | wc -l
+  register: peer_count
+  retries: 10
+  delay: 5
+  until: peer_count.stdout|int >= 2
+
+- name: Create volume gv0
+  shell: >
+    gluster volume create gv0 replica 3
+    walid:/gluster/brick1/gv0
+    ultrac1:/gluster/brick1/gv0
+    ultrac2:/gluster/brick1/gv0
+    force
+  args:
+    creates: /var/lib/glusterd/vols/gv0
+  when: inventory_hostname == gluster_peers[0]
+
+- name: Start GlusterFS volume - running from first peer
+  ansible.builtin.shell: gluster volume start {{ gluster_volume_name }}
+  when: inventory_hostname == gluster_peers[0]
+  register: start_volume
+  failed_when: start_volume.rc != 0 and 'already started' not in start_volume.stderr

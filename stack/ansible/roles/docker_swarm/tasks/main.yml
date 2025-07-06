@@ -1,0 +1,45 @@
+- name: Ensure required packages
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+    state: present
+    update_cache: yes
+
+- name: Add Docker APT repository (Fixed for GPG dearmor problem)
+  ansible.builtin.deb822_repository:
+    name: docker
+    state: present
+    types: [deb]
+    uris: "https://download.docker.com/linux/{{ ansible_distribution|lower }}"
+    suites: ["{{ ansible_distribution_release|lower }}"]
+    components: [stable]
+    signed_by: "https://download.docker.com/linux/debian/gpg"
+    enabled: yes
+
+- name: Update apt cache after adding Docker repo
+  apt:
+    update_cache: yes
+
+- name: Install docker packages
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: latest
+    update_cache: yes
+
+- name: Enable and start docker
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Manager/Worker Swarm node setup
+  include_tasks: "{{  'init_manager.yml' if inventory_hostname in groups['swarm_manager'] else 'join_worker.yml' }}"

@@ -1,0 +1,16 @@
+- name: Create GlusterFS subdir for Docker
+  file:
+    path: /mnt/gv0/appdata
+    state: directory
+    mode: '0755'
+
+- name: Create Docker volume backed by GlusterFS
+  shell: >
+    docker volume create
+    --driver local
+    --opt type=none
+    --opt device=/mnt/gv0/appdata
+    --opt o=bind
+    glusterfs_shared
+  args:
+    creates: /var/lib/docker/volumes/glusterfs_shared

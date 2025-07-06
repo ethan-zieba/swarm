@@ -1,0 +1,23 @@
+---
+- name: Install GlusterFS server
+  ansible.builtin.apt:
+    name: glusterfs-server
+    update_cache: yes
+    state: present
+
+- name: Install FUSE client
+  apt:
+    name: glusterfs-client
+    state: present
+
+- name: Ensure GlusterFS service is enabled and running
+  ansible.builtin.service:
+    name: glusterd
+    state: started
+    enabled: yes
+
+- name: Create Gluster brick directory
+  file:
+    path: /gluster/brick1/gv0
+    state: directory
+    recurse: true

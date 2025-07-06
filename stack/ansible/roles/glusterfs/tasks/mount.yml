@@ -1,0 +1,17 @@
+---
+- name: Create mount point directory
+  ansible.builtin.file:
+    path: "{{ gluster_mount_point }}"
+    state: directory
+    mode: '0755'
+
+- name: Mount GlusterFS volume
+  ansible.builtin.mount:
+    path: "{{ gluster_mount_point }}"
+    src: "{{ gluster_peers[0] }}:{{ gluster_volume_name }}"
+    fstype: glusterfs
+    state: mounted
+
+- name: Mount success
+  ansible.builtin.debug:
+    msg: CYRIL FANCLUB ULTRAS ON DUTY FROM {{ inventory_hostname | upper }}- GLUSTERFS IS MOUNTED AND READY TO GO !

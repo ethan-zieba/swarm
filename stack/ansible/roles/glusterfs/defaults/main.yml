@@ -1,0 +1,7 @@
+gluster_brick_path: /data/brick1
+gluster_volume_name: gv0
+gluster_mount_point: /mnt/gv0
+gluster_peers:
+  - walid
+  - ultrac1
+  - ultrac2

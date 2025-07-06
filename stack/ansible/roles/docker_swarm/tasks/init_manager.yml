@@ -1,0 +1,14 @@
+- name: Init Swarm
+  shell: docker swarm init --advertise-addr {{ ansible_host_ipv4 }}
+  register: init_output
+  changed_when: "'Swarm initialized' in init_output.stdout"
+
+- name: Get worker token
+  shell: docker swarm join-token -q worker
+  register: worker_token
+  changed_when: false
+
+- name: Set fact for other hosts
+  set_fact:
+    swarm_worker_token: "{{ worker_token.stdout }}"
+    swarm_manager_ip: "{{ ansible_default_ipv4.address }}"
