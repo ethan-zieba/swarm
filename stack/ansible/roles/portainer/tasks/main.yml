@@ -1,0 +1,26 @@
+- name: Create Portainer volume
+  docker_volume:
+    name: "{{ portainer_data_volume }}"
+  when: inventory_hostname == 'walid' #Maybe useless to check for "walid" as the main playbook only starts this role on the swarm manager
+
+- name: Deploy Portainer service on manager node
+  docker_swarm_service:
+    name: "{{ portainer_service_name }}"
+    image: "{{ portainer_image }}"
+    publish:
+      - target: 9000
+        published: "{{ portainer_port }}"
+        protocol: tcp
+    mounts:
+      - type: volume
+        source: "{{ portainer_data_volume }}"
+        target: /data
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    mode: replicated
+    replicas: 1
+    restart_policy:
+      condition: any
+  when: inventory_hostname == 'walid' #Maybe useless to check for "walid" as the main playbook only starts this role on the swarm manager 
+

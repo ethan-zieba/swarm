@@ -1,0 +1,4 @@
+portainer_service_name: portainer
+portainer_image: portainer/portainer-ce:latest
+portainer_volume_name: glusterfs_shared
+portainer_port: 9000
