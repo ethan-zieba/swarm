@@ -9,7 +9,7 @@ For the proof of concept (PoC), we ran a 4-node Raspberry Pi 4 cluster. The firs
 
 Storage will be made resilient by replicating and distributing it across three hosts using **GlusterFS**.
 
-To make services and management interfaces accessible remotely, we will set up a **Pangolin** reverse proxy (instead of **NGINX** – mainly to try something new), paired with a **Cloudflare tunnel** to protect against DDoS attacks and to hide our home IP.
+To make services and management interfaces accessible remotely, we will set up a **Traefik** reverse proxy (instead of **NGINX** – mainly to try something), paired with a **Cloudflare tunnel** to protect against DDoS attacks and to hide our home IP.
 
 For logs and metrics, we will build a custom log aggregator called **N.A.D.I.R,** which will index into **InfluxDB** and be visualised using **Grafana**. Logs will be gathered by lightweight agents named **T.O.M**.
 
@@ -25,9 +25,9 @@ For logs and metrics, we will build a custom log aggregator called **N.A.D.I.R,*
 
 - Perimeter will be protected by a Clavister E10 Firewall, filtering traffic by source, protocol, port, etc.
 - Authentik will serve as the central SSO for user authentication
-- We will use Traefik to balance traffic across all nodes and ensure smooth integration with Pangolin and the deployed services
+- We will use Traefik to balance traffic across all nodes
 
-## TTICHAN GraSP CloPAG
+## TTICHAN GraSP ClAG
 (Yes, that is how we will refer to this project from now on)
 ### Project Summary
 
@@ -44,7 +44,6 @@ For logs and metrics, we will build a custom log aggregator called **N.A.D.I.R,*
 - Portainer - Graphical interface for managing the Swarm
 
 - Cloudflare - For creating a tunnel
-- Pangolin - Modern Reverse Proxy product for homelabs and pre-prod environments
 - Authentik - Simple SSO
 - GlusterFS - Replicated and distributed storage
 
@@ -64,7 +63,7 @@ For logs and metrics, we will build a custom log aggregator called **N.A.D.I.R,*
 │   ├── PORTAINER.md
 │   ├── SERVICES.md
 │   ├── SWARM.md
-│   └── TRAEFFIK_PANGOLIN.md
+│   └── TRAEFFIK.md
 ├── 3_SECURITY_AND_AUTH
 │   ├── AUTHENTIK_SSO.md
 │   ├── CLOUDFLARE.md
