@@ -23,10 +23,9 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 
 ## Overall Progress
 **T**TI**C**H**A**N Gra**SP** ClAG
-**54%**
-┌─────────────────────────────────────────────────┐  
-|███████████████████████████░░░░░░░░░░░░░░░░░░░░░░░|
-└─────────────────────────────────────────────────┘
+
+| **54%** | ███████████████████████████░░░░░░░░░░░░░░░░░░░░░░░ |
+| --- | --- |
 ## Detailed Progress
 
 | Component                      | Status             | Progress               |
