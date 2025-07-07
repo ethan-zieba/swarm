@@ -1,0 +1,2 @@
+0 */12 * * * /opt/hugo_script.sh /mnt/gv0/appdata >> /var/log/hugo.log 2>&1
+
