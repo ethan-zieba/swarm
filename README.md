@@ -40,9 +40,9 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 | InfluxDB (Time-series DB)      | In Progress        | █████▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (25%)     |
 | Grafana (Visualization)        | In Progress        | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
 | T.O.M (Telemetry Agent)         | In Progress       | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
-| H.U.G.O (Offsite Storage)       | In Progress       | ██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (10%)     |
-| Cloudflare Tunnel              | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+| H.U.G.O (Offsite Storage)       | Deployed       | ███████████████████ (100%)     |
+| Cloudflare Tunnel              | Not Deployed       | ███████▁▁▁▁▁▁▁▁▁▁▁▁ (35%)      |
 | Jumpserver (Bastion)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%) |
 | Keycloak (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
-| Misc applications (required for the exam)| Not Deployed| ░░░░░░░░░░░░░░░░░░░ (0%)   |
+| Misc applications (required for the exam)| Deployed| ███████████████████ (0%)   |
 
