@@ -18,3 +18,31 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 3. Create an ssh ed25519 keypair for ansible@cyril, push its public key on the other hosts management account
 4. Install ansible and ansible posix on cyril [using pipx and ansible-galaxy](https://github.com/ethan-zieba/swarm/blob/docs/docs/2_DEPLOYMENT/ANSIBLE.md#installing-ansible)
 5. Further instructions to come... (a script is in the making)
+
+# Stack Progress
+
+## Overall Progress
+**T**TI**C**H**A**N Gra**SP** CloJKeG
+
+| **54%** | ███████████████████████████░░░░░░░░░░░░░░░░░░░░░░░ |
+| --- | --- |
+## Detailed Progress
+
+| Component                      | Status             | Progress               |
+|-------------------------------|--------------------|------------------------|
+| Clavister (Firewall)           | Deployed           | ███████████████████ (100%) |
+| Traefik (Reverse Proxy)        | Deployed           | ███████████████████ (100%) |
+| Swarm (Docker Orchestration)   | Deployed           | ███████████████████ (100%) |
+| Ansible (Provisioning)         | Deployed           | ███████████████████ (100%) |
+| Portainer (Swarm UI)           | Deployed           | ███████████████████ (100%) |
+| GlusterFS (Distributed Storage)| Deployed           | ███████████████████ (100%) |
+| N.A.D.I.R (Intrusion Detection)| Planning/Starting  | ███████▁▁▁▁▁▁▁▁▁▁▁▁ (35%)     |
+| InfluxDB (Time-series DB)      | In Progress        | █████▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (25%)     |
+| Grafana (Visualization)        | In Progress        | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
+| T.O.M (Telemetry Agent)         | In Progress       | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
+| H.U.G.O (Offsite Storage)       | In Progress       | ██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (10%)     |
+| Cloudflare Tunnel              | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+| Jumpserver (Bastion)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%) |
+| Keycloak (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+| Misc applications (required for the exam)| Not Deployed| ░░░░░░░░░░░░░░░░░░░ (0%)   |
+
