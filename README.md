@@ -22,7 +22,7 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 # Stack Progress
 
 ## Overall Progress
-**T**TI**C**H**A**N Gra**SP** ClAG
+**T**TI**C**H**A**N Gra**SP** CloJKeG
 
 | **54%** | ███████████████████████████░░░░░░░░░░░░░░░░░░░░░░░ |
 | --- | --- |
@@ -42,6 +42,7 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 | T.O.M (Telemetry Agent)         | In Progress       | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
 | H.U.G.O (Offsite Storage)       | In Progress       | ██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (10%)     |
 | Cloudflare Tunnel              | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
-| Authentik (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
+| Jumpserver (Bastion)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%) |
+| Keycloak (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
 | Misc applications (required for the exam)| Not Deployed| ░░░░░░░░░░░░░░░░░░░ (0%)   |
 
