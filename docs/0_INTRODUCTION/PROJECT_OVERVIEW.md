@@ -30,7 +30,7 @@ For logs and metrics, we will build a custom log aggregator called **N.A.D.I.R,*
 
 We dearly present you...
 
-# TTICHAN GraSP CloPAG
+# TTICHAN GraSP CloJKeG
 
 TTICHAN GraSP CloPAG is a modular and resilient infrastructure project built around Docker Swarm
 The goal is to design and operate a distributed containerized system that includes distributed storage, custom-built monitoring and logging pipeline, multiple security layers, with integrated BRP & BCP measures.
@@ -48,6 +48,6 @@ The goal is to design and operate a distributed containerized system that includ
 - Portainer - Graphical interface for managing the Swarm
 
 - Cloudflare - For creating a tunnel
-- Pangolin - Modern Reverse Proxy product for homelabs and pre-prod environments
-- Authentik - Simple SSO
+- Jumpserver - Bastion
+- Keycloak - Simple SSO
 - GlusterFS - Replicated and distributed storage
