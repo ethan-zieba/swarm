@@ -24,7 +24,7 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 ## Overall Progress
 **T**TI**C**H**A**N Gra**SP** CloJKeG
 
-| **61%** | █████████████████████████████░░░░░░░░░░░░░░░░░░░ |
+| **86%** | ███████████████████████████████████████░░░░░░░ |
 | --- | --- |
 ## Detailed Progress
 
@@ -36,13 +36,13 @@ Please read [our documentation](https://github.com/ethan-zieba/swarm/blob/docs/d
 | Ansible (Provisioning)         | Deployed           | ███████████████████ (100%) |
 | Portainer (Swarm UI)           | Deployed           | ███████████████████ (100%) |
 | GlusterFS (Distributed Storage)| Deployed           | ███████████████████ (100%) |
-| N.A.D.I.R (Intrusion Detection)| Planning/Starting  | ███████▁▁▁▁▁▁▁▁▁▁▁▁ (35%)     |
-| InfluxDB (Time-series DB)      | In Progress        | █████▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (25%)     |
-| Grafana (Visualization)        | In Progress        | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
-| T.O.M (Telemetry Agent)         | In Progress       | ███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ (15%)     |
-| H.U.G.O (Offsite Storage)       | Deployed       | ███████████████████ (100%)     |
-| Cloudflare Tunnel              | Not Deployed       | ███████▁▁▁▁▁▁▁▁▁▁▁▁ (35%)      |
-| Jumpserver (Bastion)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%) |
-| Keycloak (SSO)                | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)      |
-| Misc applications (required for the exam)| Deployed| ███████████████████ (0%)   |
+| N.A.D.I.R (Intrusion Detection)| Planning/Starting  | ███████████████████ (100%) |
+| InfluxDB (Time-series DB)      | In Progress        | ███████████████████ (100%) |
+| Grafana (Visualization)        | In Progress        | ███████████████████ (100%) |
+| T.O.M (Telemetry Agent)        | In Progress        | ███████████████████ (100%) |
+| H.U.G.O (Offsite Storage)      | Deployed           | ███████████████████ (100%) |
+| Cloudflare Tunnel              | Not Deployed       | ██████████████▁▁▁ (80%)  |
+| Jumpserver (Bastion)           | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)   |
+| Keycloak (SSO)                 | Not Deployed       | ░░░░░░░░░░░░░░░░░░░ (0%)   |
+| Misc applications (required for the exam)| Deployed | ███████████████████ (100%)  |
 
