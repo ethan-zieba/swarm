@@ -57,7 +57,7 @@ def load_touchy_commands(path="touchy.yml"):
         with open(path, "r") as f:
             config = yaml.safe_load(f)
             commands = config.get("touchy_commands", [])
-            return [(item['command'], item['level']) for item in commands]
+            return [(item['command'], item['level'], item['title']) for item in commands]
     except Exception as e:
         print(f"[N.A.D.I.R] Failed to load touchy commands file '{path}': {e}")
         return [("rm -rf", 5), ("sudo", 4)]
@@ -70,7 +70,7 @@ def analyse_message(message):
     for command in touchy_commands:
         if command[0] in message:
             alert_level = command[1]
-            alert_title = f"{command[0]} command"
+            alert_title = command.get('title', 'Info')
             break
     return [f"alert_level={alert_level}", f"alert={alert_title}"]
 

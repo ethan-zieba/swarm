@@ -1,0 +1,109 @@
+touchy_commands:
+  - command: rm -rf
+    level: 5
+    alert_title: "Dangerous remove ?"
+
+  - command: sudo
+    level: 4
+    alert_title: "sudo command, privesc?"
+
+  - command: crontab
+    level: 4
+    alert_title: "persistence tweak"
+
+  - command: ssh
+    level: 3
+    alert_title: "bouncing off?"
+
+  - command: nc
+    level: 2
+    alert_title: "netcat / revshell tool"
+
+  - command: passwd
+    level: 3
+    alert_title: "creds change attempt"
+
+  - command: systemctl
+    level: 3
+    alert_title: "service mgmt / persistence"
+
+  - command: reboot
+    level: 5
+    alert_title: "system reboot / disruption"
+
+  - command: shutdown
+    level: 5
+    alert_title: "system shutdown / disruption"
+  
+  - command: useradd
+    level: 4
+    alert_title: "unauthorized user add"
+    
+  - command: userdel
+    level: 4
+    alert_title: "unauthorized user del"
+
+  - command: chmod
+    level: 2
+    alert_title: "perms change / privesc risk"
+
+  - command: chown
+    level: 2
+    alert_title: "Owner change / privesc risk"
+
+  - command: docker
+    level: 3
+    alert_title: "Docker mgmt / priv abuse"
+
+  - command: curl
+    level: 2
+    alert_title: "Data exfil / external comm"
+
+  - command: wget
+    level: 2
+    alert_title: "Data exfil / external comm"
+
+  - command: nano
+    level: 1
+    alert_title: "File edit / user action"
+
+  - command: vim
+    level: 1
+    alert_title: "File edit / user action"
+
+  - command: vi
+    level: 1
+    alert_title: "File edit / user action"
+
+  - command: emacs
+    level: 1
+    alert_title: "File edit / user action"
+
+  # Level 0 - informational / low risk commands but useful for recon
+  - command: ls
+    level: 0
+    alert_title: "Dir listing / recon"
+
+  - command: pwd
+    level: 0
+    alert_title: "Path disclosure / recon"
+
+  - command: whoami
+    level: 0
+    alert_title: "User ID check"
+
+  - command: date
+    level: 0
+    alert_title: "System time check"
+
+  - command: echo
+    level: 0
+    alert_title: "Output / basic cmd"
+
+  - command: hostname
+    level: 0
+    alert_title: "Host info / recon"
+
+  - command: uptime
+    level: 0
+    alert_title: "System uptime check"
