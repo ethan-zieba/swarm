@@ -1,0 +1,10 @@
+- CYRIL: Cluster-Yielding Resource for Infrastructure Load-balancing
+- WALID: Workload-Aware Leader for Integration and Data
+- NADIR: Network Anomaly Detection and Intrusion Reporter
+- CTA: CloudFlare Traefik Keycloak
+- fan2sebastien: Forensic Analysis & Networking 2 Security-Event-Based Anomaly Surveillance & Threat Identification, Escalation & Neutralization
+- TOM: Tracking & Observation Microagent
+- NGIT: Our NADIR/GRAFANA/INFLUXDB/TOM stack
+- JMS: Our Jumpserver Bastion
+- BCP & BRP: Business Continuity Plan & Business Restarting Plan
+- HUGO: Highly-compressed Upload for Guaranteed Offsite-storage
