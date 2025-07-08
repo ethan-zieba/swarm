@@ -8,6 +8,7 @@ For now they are able to monitor one log file at once but there are more feature
 
 `tom_config.yml` file must be placed in the same directory as the python script
 
+tom_config.yml contents:
 ```tom_config.yml
 nadir_endpoint: "http://192.168.1.1:3100/nadir/api/v1/push"
 hostname: "walid"
