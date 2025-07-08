@@ -9,10 +9,10 @@ services:
     volumes:
       - influxdb_data:/var/lib/influxdb
     environment:
-      - INFLUXDB_DB_FILE=/run/secrets/influxdb_name
+      - INFLUXDB_DB=secret
       - INFLUXDB_HTTP_AUTH_ENABLED=true
-      - INFLUXDB_ADMIN_USER_FILE=/run/secrets/influxdb_user
-      - INFLUXDB_ADMIN_PASSWORD_FILE=/run/secrets/influxdb_password
+      - INFLUXDB_ADMIN_USER=secret
+      - INFLUXDB_ADMIN_PASSWORD=secret
     secrets:
       - influxdb_password
       - influxdb_user
