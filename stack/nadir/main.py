@@ -1,0 +1,91 @@
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from influxdb import InfluxDBClient
+import json
+
+
+client = InfluxDBClient(host='influxdb', port=8086)
+client.switch_database('nadir_db')
+
+class NadirHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        if self.path != "/nadir/api/v1/push":
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(b"Endpoint not found")
+            return
+
+        content_length = int(self.headers.get('Content-Length', 0))
+        raw_data = self.rfile.read(content_length)
+
+        try:
+            payload = raw_data.decode('utf-8').strip()
+            lines = payload.strip().split("\n")
+            points = []
+            for line in lines:
+                try:
+                    point = parse_received_log(line)
+                    points.append(point)
+                except Exception as e:
+                    print("Skipping malformed line:", line)
+                    print("Error:", e)
+
+            if points:
+                client.write_points(points, time_precision='n')
+            self.send_response(204)
+            self.end_headers()
+
+        except Exception as e:
+            self.send_response(500)
+            self.end_headers()
+            error_msg = f"[N.A.D.I.R] Error decoding log: {e}"
+            print(error_msg)
+            self.wfile.write(error_msg.encode())
+
+def analyse_message(message):
+    alert_level = 0
+    alert_title = "Info"
+    touchy_commands = [("sudo", 5), ("crontab", 4), ("ssh", 3)]
+    for command in touchy_commands:
+        if command in message:
+            alert_level = command[1]
+            alert_title = f"{command[0]} command"
+            break
+    return [f"alert_level={alert_level}", f"alert={alert_title}"]
+
+def parse_received_log(line):
+    #Log is in the format: logs,job=tom_agent,host=host,source=src message="msg" timestamp
+    base_line, timestamp = line.rsplit(" ", 1)
+    measurement_part, field_part = base_line.split(" ", 1)
+
+    # So here we have: measurement_part, field_part, timestamp
+
+    measurement_tags = measurement_part.split(",")
+    # Now we have: ["logs","job=tom_agent","host=host","source=src"]
+
+    measurement = measurement_tags[0]
+    tags = measurement_tags[1:]
+    alert_tags = analyse_message(field_part)
+
+    tags = alert_tags + tags
+    tags = dict(tag.split("=") for tag in tags)
+
+    fields = dict()
+    for field in field_part.split(","):
+        k, v = field.split("=")
+        fields[k] = v.strip('"')
+    point = {
+        "measurement": measurement,
+        "tags": tags,
+        "fields": fields,
+        "time": int(timestamp)
+    }
+    return point
+
+def run_server(port=3100):
+    print(f"N.A.D.I.R listening on port {port}...")
+    server_address = ('0.0.0.0', port)
+    httpd = HTTPServer(server_address, NadirHandler)
+    httpd.serve_forever()
+
+if __name__ == "__main__":
+    run_server()
