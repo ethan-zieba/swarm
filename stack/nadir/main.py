@@ -2,9 +2,20 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from influxdb import InfluxDBClient
 import json
 
+def read_secret(path):
+    try:
+        with open(path, 'r') as f:
+            return f.read().strip()
+    except Exception as e:
+        print(f"[N.A.D.I.R] Failed to read secret from {path}: {e}")
+        return None
 
-client = InfluxDBClient(host='influxdb', port=8086)
-client.switch_database('nadir_db')
+INFLUX_DB_NAME = read_secret("/run/secrets/influxdb_name")
+INFLUX_DB_USER = read_secret("/run/secrets/influxdb_user")
+INFLUX_DB_PASSWORD = read_secret("/run/secrets/influxdb_password")
+
+client = InfluxDBClient(host='influxdb', port=8086, username=INFLUX_DB_USER, password=INFLUX_DB_PASSWORD)
+client.switch_database(INFLUX_DB_NAME)
 
 class NadirHandler(BaseHTTPRequestHandler):
     def do_POST(self):

@@ -1,0 +1,3 @@
+influx_db_name.secret
+influx_db_user.secret
+influx_db_password.secret

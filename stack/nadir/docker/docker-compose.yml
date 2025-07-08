@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=/run/secrets/influxdb_name
+      - INFLUXDB_HTTP_AUTH_ENABLED=true
+      - INFLUXDB_ADMIN_USER=/run/secrets/influxdb_user
+      - INFLUXDB_ADMIN_PASSWORD_FILE=/run/secrets/influxdb_password
+    secrets:
+      - influxdb_password
+      - influxdb_user
+      - influxdb_name
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - influxdb
+    restart: unless-stopped
+
+  nadir:
+    build: .
+    container_name: nadir_app
+    ports:
+      - "3100:3100"
+    depends_on:
+      - influxdb
+    secrets:
+      - influxdb_password
+      - influxdb_user
+      - influxdb_name
+    restart: unless-stopped
+
+volumes:
+  influxdb_data:
+  grafana_data:
+
+secrets:
+  influxdb_password:
+    file: ./influx_db_password.secret
+  influxdb_user:
+    file: ./influx_db_user.secret
+  influxdb_name:
+    file: ./influx_db_name.secret
