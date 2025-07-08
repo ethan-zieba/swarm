@@ -7,4 +7,6 @@ COPY src/main.py .
 COPY src/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "main.py"]
+COPY src/touchy.yml .
+
+CMD ["python", "-u", "main.py"]

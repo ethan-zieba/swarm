@@ -1,9 +1,22 @@
 import time
 import requests
+import yaml
 
-LOG_FILE = "/var/log/testlogs.log"
-NADIR_ENDPOINT = "http://192.168.121.1:3100/nadir/api/v1/push"
-HOSTNAME = "walid"
+
+def load_config(path="tom_config.yml"):
+    try:
+        with open(path, 'r') as f:
+            return yaml.safe_load(f)
+    except Exception as e:
+        print(f"Failed to load config from {path}: {e}")
+        return {}
+
+config = load_config()
+
+NADIR_ENDPOINT = config.get("nadir_endpoint", "http://192.168.121.1:3100/nadir/api/v1/push")
+HOSTNAME = config.get("hostname", "walid")
+LOG_FILE = config.get("log_file", "/var/log/testlogs.log")
+
 MEASUREMENT_TYPE = ["logs", "metric"]
 TAGS = {"job": "tom_agent", "host": "walid"}
 

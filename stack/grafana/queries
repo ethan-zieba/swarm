@@ -1,0 +1,1 @@
+SELECT "alert_level" AS "lvl", "alert" AS "alert name", "host", "source", "message", "job" AS "sender" FROM "logs" WHERE $timeFilter AND "host" =~ /.*/
