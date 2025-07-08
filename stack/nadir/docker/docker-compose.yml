@@ -9,9 +9,9 @@ services:
     volumes:
       - influxdb_data:/var/lib/influxdb
     environment:
-      - INFLUXDB_DB=/run/secrets/influxdb_name
+      - INFLUXDB_DB_FILE=/run/secrets/influxdb_name
       - INFLUXDB_HTTP_AUTH_ENABLED=true
-      - INFLUXDB_ADMIN_USER=/run/secrets/influxdb_user
+      - INFLUXDB_ADMIN_USER_FILE=/run/secrets/influxdb_user
       - INFLUXDB_ADMIN_PASSWORD_FILE=/run/secrets/influxdb_password
     secrets:
       - influxdb_password
@@ -31,7 +31,9 @@ services:
     restart: unless-stopped
 
   nadir:
-    build: .
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
     container_name: nadir_app
     ports:
       - "3100:3100"
